@@ -5,8 +5,6 @@ window.addEventListener('load', (event) => {
     document.addEventListener('selectionchange', ()=>{
         const sel = document.getSelection();
         const range = sel.getRangeAt(0);
-        SELECTED = range;
-        console.log('selectionchange', document.getSelection().focusNode);
         if (IS_IME_END) {
             console.log('sel.focusNode', sel.focusNode);
             console.log('sel.focusNode.parentNode', sel.focusNode.parentNode);
@@ -28,6 +26,8 @@ window.addEventListener('load', (event) => {
 
             IS_IME_END = false;
         }
+        SELECTED = range;
+        console.log('selectionchange', document.getSelection().focusNode);
     });
     document.addEventListener('compositionstart', (event)=>{
         console.log('compositionstart', event);
